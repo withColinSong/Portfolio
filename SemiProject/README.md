@@ -15,7 +15,7 @@
 - [2. 기능 구현 상세 설명](#2-기능-구현-상세-설명)
   - [2.1. 로그인 화면 구상하여 만들어보기](#21-로그인-화면-구상하여-만들어보기)
     - [2.1.1. 코드 링크](#211-코드-링크)
-      - [2.1.1.1 보안점](#2111-보안점)
+      - [2.1.1.1 보완점](#2111-보완점)
     - [2.1.2 로그인 화면 구상 중 메모 작성](#212-로그인-화면-구상-중-메모-작성)
   - [2.2. 회원가입 서비스 약관](#22-회원가입-서비스-약관)
     - [2.2.1 코드 링크](#221-코드-링크)
@@ -110,7 +110,7 @@ IDE | Eclipse, Sql Developer, VSC|
 - [index.html 파일](https://github.com/withColinSong/Semi-Project/blob/master/01.plan/01.Song/code/20.12/201206/index.html)
 - [index.css 파일](https://github.com/withColinSong/Semi-Project/blob/master/01.plan/01.Song/code/20.12/201206/index.css)
 
-#### 2.1.1.1 보안점
+#### 2.1.1.1 보완점
 1. CSS를 적용할 때, 태그에 직접 지정하는 것이 아니라 `name`이나, `class`로 지정하여 적용하는 것이 팀원들과 코드를 합쳤을 때 충돌이 없다.
 
 ### 2.1.2 로그인 화면 구상 중 메모 작성
@@ -236,6 +236,7 @@ IDE | Eclipse, Sql Developer, VSC|
 ### 2.6.1 코드 링크
 `view`
 - [purchaseIndex.jsp](https://github.com/withColinSong/FineApple/blob/main/Fineapple-final/WebContent/purchase/index.jsp)
+- [purchase.js](https://github.com/withColinSong/FineApple/blob/main/Fineapple-final/WebContent/js/userjoin/purchase.js)
 - [purchase.css](https://github.com/withColinSong/FineApple/blob/main/Fineapple-final/WebContent/css/purchase/purchase.css)
 
 `controller`
@@ -276,7 +277,6 @@ IDE | Eclipse, Sql Developer, VSC|
 
 - [📁 포트폴리오 메인으로 이동하기](https://github.com/withColinSong/Portfolio)
 - [목차로 이동하기](#목차)
-
 
 
 
