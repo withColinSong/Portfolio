@@ -15,13 +15,20 @@
 - [2. 기능 구현 상세 설명](#2-기능-구현-상세-설명)
   - [2.1. 로그인 화면 구상하여 만들어보기](#21-로그인-화면-구상하여-만들어보기)
     - [2.1.1. 코드 링크](#211-코드-링크)
+      - [2.1.1.1 보안점](#2111-보안점)
     - [2.1.2 로그인 화면 구상 중 메모 작성](#212-로그인-화면-구상-중-메모-작성)
   - [2.2. 회원가입 서비스 약관](#22-회원가입-서비스-약관)
+    - [2.2.1 코드 링크](#221-코드-링크)
   - [2.3. 회원가입](#23-회원가입)
+    - [2.3.1. 코드 링크](#231-코드-링크)
   - [2.4. 회원정보 수정](#24-회원정보-수정)
+    - [2.4.1. 코드 링크](#241-코드-링크)
   - [2.5. 주문/배송조회 프론트 작업](#25-주문배송조회-프론트-작업)
+    - [2.5.1. 코드 링크](#251-코드-링크)
   - [2.6. 구매하기](#26-구매하기)
+    - [2.6.1 코드 링크](#261-코드-링크)
   - [2.7. 결제하기](#27-결제하기)
+    - [2.7.1 코드 링크](#271-코드-링크)
   - [🎉 후기](#-후기)
 
 
@@ -100,9 +107,11 @@ IDE | Eclipse, Sql Developer, VSC|
 
 
 ### 2.1.1. 코드 링크
-- [HTML 파일로 이동하기](https://github.com/withColinSong/Semi-Project/blob/master/01.plan/01.Song/code/20.12/201206/index.html)
-- [CSS 파일로 이동하기](https://github.com/withColinSong/Semi-Project/blob/master/01.plan/01.Song/code/20.12/201206/index.css)
+- [index.html 파일](https://github.com/withColinSong/Semi-Project/blob/master/01.plan/01.Song/code/20.12/201206/index.html)
+- [index.css 파일](https://github.com/withColinSong/Semi-Project/blob/master/01.plan/01.Song/code/20.12/201206/index.css)
 
+#### 2.1.1.1 보안점
+1. CSS를 적용할 때, 태그에 직접 지정하는 것이 아니라 `name`이나, `class`로 지정하여 적용하는 것이 팀원들과 코드를 합쳤을 때 충돌이 없다.
 
 ### 2.1.2 로그인 화면 구상 중 메모 작성
 > 작성일 : 20.12.09
@@ -132,6 +141,13 @@ IDE | Eclipse, Sql Developer, VSC|
 - `[필수]` 항목을 선택하지 않았을 때 JavaScript을 이용하여 alert창을 띄어주며 다음으로 넘어가지 않도록 스크립트 처리하였다.
 - 계정 약관 `>` 버튼을 눌렀을 시 스크립트 모달창을 띄워 약관을 보여준다.
 
+### 2.2.1 코드 링크
+`view`
+- [agree.jsp](https://github.com/withColinSong/FineApple/blob/main/Fineapple-final/WebContent/UsersJoin/agree.jsp)
+- [modal.js](https://github.com/withColinSong/FineApple/blob/main/Fineapple-final/WebContent/js/userjoin/agree.js)
+- [agree.css](https://github.com/withColinSong/FineApple/blob/main/Fineapple-final/WebContent/css/UsersJoin/agree.css)
+
+
 [목차로 이동하기](#목차)
 
 ## 2.3. 회원가입
@@ -139,19 +155,54 @@ IDE | Eclipse, Sql Developer, VSC|
 ![](assets/UserJoin.gif)
 
 
-- 아이디를 중복체크 시 서블릿으로 DataBase를 처리 후 JSP를 통해 해당 아이디가 null 이라면 `스마일 표시`, null이 아니라면 `중복` 표시    
+- 아이디를 중복체크 시 서블릿으로 DataBase를 처리 후 JSP를 통해 해당 아이디가 null 이라면 `스마일 표시`, null이 아니라면 `중복` 표시가 된다.
 - JavaScript를 이용하여 이메일, 비밀번호, 아이디 형식을 벗어날 시 정규식 유효성 체크
 - Daum 우편 API를 사용하여 스크립트 처리 후 해당 `<input>` 태그에 데이터를 넣어준다.
 
+### 2.3.1. 코드 링크
+`view`
+- [userjoinIndex.jsp](https://github.com/withColinSong/FineApple/blob/main/Fineapple-final/WebContent/UsersJoin/index.jsp)
+- [userjoin.js](https://github.com/withColinSong/FineApple/blob/main/Fineapple-final/WebContent/js/userjoin/userjoin.js)
+- [userjoin.css](https://github.com/withColinSong/FineApple/blob/main/Fineapple-final/WebContent/css/UsersJoin/UsersJoin.css)
+
+`controller`
+- [MemberServlet](https://github.com/withColinSong/FineApple/blob/main/Fineapple-final/src/users/MemberServlet.java)
+
+`vo`
+- [MemberVo](https://github.com/withColinSong/FineApple/blob/main/Fineapple-final/src/users/MemberVo.java)
+ 
+`myBatis`
+- [BoardFactory.java `sqlSessionFactory`](https://github.com/withColinSong/FineApple/blob/main/Fineapple-final/src/users/BoardFactory.java)
+- [BoardDao.java `sqlSession`](https://github.com/withColinSong/FineApple/blob/main/Fineapple-final/src/users/BoardDao.java)
+- [config.xml `connection`](https://github.com/withColinSong/FineApple/blob/main/Fineapple-final/src/users/config.xml)
+- [board.xml `쿼리문`](https://github.com/withColinSong/FineApple/blob/main/Fineapple-final/src/users/board.xml)
+ 
 [목차로 이동하기](#목차)
 
 ## 2.4. 회원정보 수정
 ![](assets/ModifyUser.gif)
 
-- 가입한 아이디로 로그인 후 마이룸 -> 회원정보 수정으로 이동하면 가입했을 때 정보를 가져오며, `현재 비밀번호`와 `새로운 비밀번호`가 다를 시 alert창 띄우고 스크립트 처리
+- 가입한 아이디로 로그인 후 마이룸 -> 회원정보 수정으로 이동하면 가입했을 때 정보를 가져오며, `현재 비밀번호`와 `새로운 비밀번호`가 다를 시 alert창 띄우고 스크립트 처리한다.
 - 아이디를 제외한 나머지를 수정할 수 있다.
 - 수정하기 버튼을 눌렀을 시 해당 데이터가 Servlet을 이용하여 DataBase를 통해 update 되면서 바뀐다.
 
+### 2.4.1. 코드 링크
+`view`
+- [mypage.jsp](https://github.com/withColinSong/FineApple/blob/main/Fineapple-final/WebContent/mypage/mypage.jsp)
+- [mypage.js](https://github.com/withColinSong/FineApple/blob/main/Fineapple-final/WebContent/js/userjoin/mypage.js)
+- [mypage.css](https://github.com/withColinSong/FineApple/blob/main/Fineapple-final/WebContent/css/UsersJoin/mypage.css)
+
+`controll`
+- [userProfileServlet](https://github.com/withColinSong/FineApple/blob/main/Fineapple-final/src/users/userProfileServlet.java)
+
+`vo`
+- [MemberVo](https://github.com/withColinSong/FineApple/blob/main/Fineapple-final/src/users/MemberVo.java)
+ 
+`myBatis`
+- [BoardFactory.java `sqlSessionFactory`](https://github.com/withColinSong/FineApple/blob/main/Fineapple-final/src/users/BoardFactory.java)
+- [BoardDao.java `sqlSession`](https://github.com/withColinSong/FineApple/blob/main/Fineapple-final/src/users/BoardDao.java)
+- [config.xml `connection`](https://github.com/withColinSong/FineApple/blob/main/Fineapple-final/src/users/config.xml)
+- [board.xml `쿼리문`](https://github.com/withColinSong/FineApple/blob/main/Fineapple-final/src/users/board.xml)
 
 [목차로 이동하기](#목차)
 
@@ -160,11 +211,16 @@ IDE | Eclipse, Sql Developer, VSC|
 
 ![](assets/OrderBy.png)
 
-- icon 
-> https://iconmonstr.com/party-12-svg/
+- [icon 참고 사이트](https://iconmonstr.com/party-12-svg/)
 
-- `배송 현황` / `배송 정보` HTML Table을 이용하여 작성
-- `배송 진행 상황` flex 박스를 이용하여 레이아웃 작업 후 css 처리
+- `배송 현황` / `배송 정보` HTML Table을 이용하여 작성했다.
+- `배송 진행 상황` flex 박스를 이용하여 레이아웃 작업 후 css 처리했다.
+
+
+### 2.5.1. 코드 링크
+`view`
+- [trackingIndex.jsp](https://github.com/withColinSong/FineApple/blob/main/Fineapple-final/WebContent/Tracking/index.jsp)
+- [tracking.css](https://github.com/withColinSong/FineApple/blob/main/Fineapple-final/WebContent/css/tracking/tracking.css)
 
 [목차로 이동하기](#목차)
 
@@ -177,15 +233,41 @@ IDE | Eclipse, Sql Developer, VSC|
   - 해당 select의 option 값을 가져온다. 
   - 적용하기 버튼을 `onClick` 시에 장바구니에서 넘어온 총 금액을 JSTL 을 이용하여 자바스크립트 변수에  `var name = ${sum}` 담아준다. 그 변수를 `typeOf`-> `parseInt`을 통해 형변환 후 `*0.1`의 연산식을 끝낸 후 jQuery를 이용하여 .attr 속성을 이용하여 데이터를 담아준다.
 
+### 2.6.1 코드 링크
+`view`
+- [purchaseIndex.jsp](https://github.com/withColinSong/FineApple/blob/main/Fineapple-final/WebContent/purchase/index.jsp)
+- [purchase.css](https://github.com/withColinSong/FineApple/blob/main/Fineapple-final/WebContent/css/purchase/purchase.css)
+
+`controller`
+- [purchaseServlet](https://github.com/withColinSong/FineApple/blob/main/Fineapple-final/src/users/purchaseServlet.java)
+
+`vo`
+- [MemberVo](https://github.com/withColinSong/FineApple/blob/main/Fineapple-final/src/users/MemberVo.java)
+ 
+`myBatis`
+- [BoardFactory.java `sqlSessionFactory`](https://github.com/withColinSong/FineApple/blob/main/Fineapple-final/src/users/BoardFactory.java)
+- [BoardDao.java `sqlSession`](https://github.com/withColinSong/FineApple/blob/main/Fineapple-final/src/users/BoardDao.java)
+- [config.xml `connection`](https://github.com/withColinSong/FineApple/blob/main/Fineapple-final/src/users/config.xml)
+- [board.xml `쿼리문`](https://github.com/withColinSong/FineApple/blob/main/Fineapple-final/src/users/board.xml)
+
+
 [목차로 이동하기](#목차)
 
 ## 2.7. 결제하기
 - `아임포트`를 이용하여 toss 신용카드 결제/무통장 입금 API를 구현했다.
-- 토스 신용카드 결제/무통장 입금 API
+- 토스 신용카드 결제/무통장 입금 API를 사용했다.
 
 ![](assets/PayCard.gif)
 
 ![](assets/PayBank.gif)
+
+
+### 2.7.1 코드 링크
+`view`
+- [paying.jsp로 이동하기](https://github.com/withColinSong/FineApple/blob/main/Fineapple-final/WebContent/purchase/paying.jsp)
+- [paying.css로 이동하기](https://github.com/withColinSong/FineApple/blob/main/Fineapple-final/WebContent/css/purchase/paying.css)
+- [payComplete.jsp로 이동하기](https://github.com/withColinSong/FineApple/blob/main/Fineapple-final/WebContent/purchase/payComplete.jsp)
+- [payComplete.css로 이동하기](https://github.com/withColinSong/FineApple/blob/main/Fineapple-final/WebContent/css/purchase/payComplete.css)
 
 [목차로 이동하기](#목차)
 
