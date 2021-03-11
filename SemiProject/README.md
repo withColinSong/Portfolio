@@ -10,7 +10,7 @@
   - [1.4. 수행기간](#14-수행기간)
   - [1.5. 사용 기술](#15-사용-기술)
   - [1.4. ERD](#14-erd)
-  - [1.5. 멤버별 기능 구현 및 담당 역할](#15-멤버별-기능-구현-및-담당-역할)
+  - [1.5. 멤버별 기능 구현](#15-멤버별-기능-구현)
   - [1.6. 담당 역할](#16-담당-역할)
 - [2. 기능 구현 상세 설명](#2-기능-구현-상세-설명)
   - [2.1. 로그인 화면 구상하여 만들어보기](#21-로그인-화면-구상하여-만들어보기)
@@ -31,7 +31,9 @@
 - `FineApple`
 
 ## 1.2. 주제 선정 이유
-- 배운 것을 기반으로 지식을 확장시켜 나갈 수 있는 게 무엇일까 고민을 해봤다. 팀원들의 여러 의견들 중에 쇼핑몰이 레이아웃 작업을 포함하여 게시판 기능 등 다양한 기능을 가지고 있어 선정하게 되었다.
+
+배운 것을 기반으로 지식을 확장시켜 나갈 수 있는 게 무엇일까 고민을 해봤다. 팀원들의 여러 의견들 중에 쇼핑몰이 레이아웃 작업을 포함하여 게시판 기능 등 다양한 기능을 가지고 있어 선정하게 되었다.
+
 - 참고 사이트 : `Apple 홈페이지`
 
 ## 1.3. 프로젝트 목표
@@ -55,9 +57,9 @@ IDE | Eclipse, Sql Developer, VSC|
 
 ## 1.4. ERD 
 
-![](https://images.velog.io/images/withcolinsong/post/163b4289-3e41-44b3-9c96-374441f766fb/image.png)
+![](assets/ERD.png)
 
-## 1.5. 멤버별 기능 구현 및 담당 역할
+## 1.5. 멤버별 기능 구현
 > 프로젝트 인원 : 6명
 
 - 회원관리
@@ -67,7 +69,7 @@ IDE | Eclipse, Sql Developer, VSC|
 - 장바구니
 - 관리자 페이지
 
-![](https://images.velog.io/images/withcolinsong/post/50355b6a-fa22-484a-9196-0f8b3e859d94/image.png)
+![](assets/Member.png)
 
 
 ## 1.6. 담당 역할
@@ -81,7 +83,7 @@ IDE | Eclipse, Sql Developer, VSC|
 ## 2.1. 로그인 화면 구상하여 만들어보기
 > 기능 구현을 나누기 전에 로그인 부분과 푸터를 구상해보고 실제 프론트 작업을 통해 데모 파일 작성했다.
 
-![](https://images.velog.io/images/withcolinsong/post/5cdc6cfa-7cc7-41b3-a76e-5c075dfa28be/image.png)
+![](assets/LoginDemo.png)
 
 ### 2.1.1 로그인 화면 구상 중 메모 작성
 > 작성일 : 20.12.09
@@ -106,30 +108,38 @@ IDE | Eclipse, Sql Developer, VSC|
 
 ## 2.2. 회원가입 서비스 약관
 
-![](https://images.velog.io/images/withcolinsong/post/df6fd809-9adf-42e9-ac6b-f64f556d2e84/ezgif.com-gif-maker%20(2).gif)
+![](assets/ServiceAgree.gif)
 
 - `[필수]` 항목을 선택하지 않았을 때 JavaScript을 이용하여 alert창을 띄어주며 다음으로 넘어가지 않도록 스크립트 처리하였다.
 - 계정 약관 `>` 버튼을 눌렀을 시 스크립트 모달창을 띄워 약관을 보여준다.
 
+[목차로 이동하기](#목차)
+
 ## 2.3. 회원가입
 
-![](https://images.velog.io/images/withcolinsong/post/638c52f8-a0d3-46cd-8263-91cc3481b706/ezgif.com-gif-maker.gif)
+![](assets/UserJoin.gif)
 
 
 - 아이디를 중복체크 시 서블릿으로 DataBase를 처리 후 JSP를 통해 해당 아이디가 null 이라면 `스마일 표시`, null이 아니라면 `중복` 표시    
 - JavaScript를 이용하여 이메일, 비밀번호, 아이디 형식을 벗어날 시 정규식 유효성 체크
 - Daum 우편 API를 사용하여 스크립트 처리 후 해당 `<input>` 태그에 데이터를 넣어준다.
 
+[목차로 이동하기](#목차)
+
 ## 2.4. 회원정보 수정
-![](https://images.velog.io/images/withcolinsong/post/19dc1469-780b-4703-94a3-cfdd77ccd491/ezgif.com-gif-maker%20(3).gif)
+![](assets/ModifyUser.gif)
 
 - 가입한 아이디로 로그인 후 마이룸 -> 회원정보 수정으로 이동하면 가입했을 때 정보를 가져오며, `현재 비밀번호`와 `새로운 비밀번호`가 다를 시 alert창 띄우고 스크립트 처리
 - 아이디를 제외한 나머지를 수정할 수 있다.
 - 수정하기 버튼을 눌렀을 시 해당 데이터가 Servlet을 이용하여 DataBase를 통해 update 되면서 바뀐다.
 
+
+[목차로 이동하기](#목차)
+
+
 ## 2.5. 주문/배송조회 프론트 작업
 
-![](https://images.velog.io/images/withcolinsong/post/3fbc5007-3cd0-416b-aeb3-9182e44c6174/image.png)
+![](assets/OrderBy.png)
 
 - icon 
 > https://iconmonstr.com/party-12-svg/
@@ -137,32 +147,34 @@ IDE | Eclipse, Sql Developer, VSC|
 - `배송 현황` / `배송 정보` HTML Table을 이용하여 작성
 - `배송 진행 상황` flex 박스를 이용하여 레이아웃 작업 후 css 처리
 
+[목차로 이동하기](#목차)
 
 ## 2.6. 구매하기
 
-![](https://images.velog.io/images/withcolinsong/post/5cf2a5cc-0639-4da8-98e8-2ce22c798724/ezgif.com-gif-maker%20(2).gif)
+![](assets/Purchase.gif)
 
 - 장바구니에서 `구매하기`를 눌렀을 시 해당 아이템들의 갯수만큼 `<input>` 태그를 JSP에서 JSTL `<c:forEach><//forEach>`을 이용하여 추가했다.
 - `10% 할인쿠폰 적용`
   - 해당 select의 option 값을 가져온다. 
   - 적용하기 버튼을 `onClick` 시에 장바구니에서 넘어온 총 금액을 JSTL 을 이용하여 자바스크립트 변수에  `var name = ${sum}` 담아준다. 그 변수를 `typeOf`-> `parseInt`을 통해 형변환 후 `*0.1`의 연산식을 끝낸 후 jQuery를 이용하여 .attr 속성을 이용하여 데이터를 담아준다.
 
+[목차로 이동하기](#목차)
 
 ## 2.7. 결제하기
 - `아임포트`를 이용하여 toss 신용카드 결제/무통장 입금 API를 구현했다.
 - 토스 신용카드 결제/무통장 입금 API
 
-![](https://images.velog.io/images/withcolinsong/post/80ee3c4f-c8fe-4fae-a0ad-92135c32cdc0/ezgif.com-gif-maker.gif)
+![](assets/PayCard.gif)
 
-![](https://images.velog.io/images/withcolinsong/post/1a010224-ec1b-40cb-9f30-faa7789fb6fb/ezgif.com-gif-maker%20(1).gif)
+![](assets/PayBank.gif)
 
-
+[목차로 이동하기](#목차)
 
 ## 🎉 후기
 
 
 - [📁 포트폴리오 메인으로 이동하기](https://github.com/withColinSong/Portfolio)
-- [목차로 가기](#목차)
+- [목차로 이동하기](#목차)
 
 
 
