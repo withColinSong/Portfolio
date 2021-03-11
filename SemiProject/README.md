@@ -81,9 +81,13 @@ IDE | Eclipse, Sql Developer, VSC|
 # 2. 기능 구현 상세 설명
 
 ## 2.1. 로그인 화면 구상하여 만들어보기
-> 기능 구현을 나누기 전에 로그인 부분과 푸터를 구상해보고 실제 프론트 작업을 통해 데모 파일 작성했다.
+기능 구현을 나누기 전에 로그인 부분과 푸터를 구상해보고 실제 프론트 작업을 통해 데모 파일 작성했다.
 
 ![](assets/LoginDemo.png)
+
+<code style="color:#e6db74">코드 링크</code>
+- [HTML 파일로 이동하기](https://github.com/withColinSong/Semi-Project/blob/master/01.plan/01.Song/code/20.12/201206/index.html)
+- [CSS 파일로 이동하기](https://github.com/withColinSong/Semi-Project/blob/master/01.plan/01.Song/code/20.12/201206/index.css)
 
 ### 2.1.1 로그인 화면 구상 중 메모 작성
 > 작성일 : 20.12.09
