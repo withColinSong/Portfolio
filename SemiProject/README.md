@@ -15,7 +15,6 @@
 - [2. 기능 구현 상세 설명](#2-기능-구현-상세-설명)
   - [2.1. 로그인 화면 구상하여 만들어보기](#21-로그인-화면-구상하여-만들어보기)
     - [2.1.1. 코드 링크](#211-코드-링크)
-      - [2.1.1.1 보완점](#2111-보완점)
     - [2.1.2 로그인 화면 구상 중 메모 작성](#212-로그인-화면-구상-중-메모-작성)
   - [2.2. 회원가입 서비스 약관](#22-회원가입-서비스-약관)
     - [2.2.1 코드 링크](#221-코드-링크)
@@ -29,7 +28,8 @@
     - [2.6.1 코드 링크](#261-코드-링크)
   - [2.7. 결제하기](#27-결제하기)
     - [2.7.1 코드 링크](#271-코드-링크)
-  - [🎉 후기](#-후기)
+  - [3. 프로젝트 후기](#3-프로젝트-후기)
+    - [3.1. 앞으로의 방향성](#31-앞으로의-방향성)
 
 
 # 1. 프로젝트 소개
@@ -110,8 +110,6 @@ IDE | Eclipse, Sql Developer, VSC|
 - [index.html 파일](https://github.com/withColinSong/Semi-Project/blob/master/01.plan/01.Song/code/20.12/201206/index.html)
 - [index.css 파일](https://github.com/withColinSong/Semi-Project/blob/master/01.plan/01.Song/code/20.12/201206/index.css)
 
-#### 2.1.1.1 보완점
-1. CSS를 적용할 때, 태그에 직접 지정하는 것이 아니라 `name`이나, `class`로 지정하여 적용하는 것이 팀원들과 코드를 합쳤을 때 충돌이 없다.
 
 ### 2.1.2 로그인 화면 구상 중 메모 작성
 > 작성일 : 20.12.09
@@ -147,13 +145,11 @@ IDE | Eclipse, Sql Developer, VSC|
 - [modal.js](https://github.com/withColinSong/FineApple/blob/main/Fineapple-final/WebContent/js/userjoin/agree.js)
 - [agree.css](https://github.com/withColinSong/FineApple/blob/main/Fineapple-final/WebContent/css/UsersJoin/agree.css)
 
-
 [목차로 이동하기](#목차)
 
 ## 2.3. 회원가입
 
 ![](assets/UserJoin.gif)
-
 
 - 아이디를 중복체크 시 서블릿으로 DataBase를 처리 후 JSP를 통해 해당 아이디가 null 이라면 `스마일 표시`, null이 아니라면 `중복` 표시가 된다.
 - JavaScript를 이용하여 이메일, 비밀번호, 아이디 형식을 벗어날 시 정규식 유효성 체크
@@ -176,7 +172,7 @@ IDE | Eclipse, Sql Developer, VSC|
 - [BoardDao.java `sqlSession`](https://github.com/withColinSong/FineApple/blob/main/Fineapple-final/src/users/BoardDao.java)
 - [config.xml `connection`](https://github.com/withColinSong/FineApple/blob/main/Fineapple-final/src/users/config.xml)
 - [board.xml `쿼리문`](https://github.com/withColinSong/FineApple/blob/main/Fineapple-final/src/users/board.xml)
- 
+
 [목차로 이동하기](#목차)
 
 ## 2.4. 회원정보 수정
@@ -233,6 +229,8 @@ IDE | Eclipse, Sql Developer, VSC|
   - 해당 select의 option 값을 가져온다. 
   - 적용하기 버튼을 `onClick` 시에 장바구니에서 넘어온 총 금액을 JSTL 을 이용하여 자바스크립트 변수에  `var name = ${sum}` 담아준다. 그 변수를 `typeOf`-> `parseInt`을 통해 형변환 후 `*0.1`의 연산식을 끝낸 후 jQuery를 이용하여 .attr 속성을 이용하여 데이터를 담아준다.
 
+> 10% 할인 쿠폰 적용은 처음에 접근하기 너무 막막했다. 자바스크립트 변수에 JSTL 변수를 담을 수 있다는 점을 구글링을 통해 알게 됐다. 장바구니를 구현한 팀원의 sum 값을 받아올 수 있는 지 console.log()를 통하여 확인했다. 값을 잘 받아오다가도 문제가 풀리지 않을 때 팀원들과 구글 meet을 통해 아이디어도 공유하여 결국 구현해냈다!
+
 ### 2.6.1 코드 링크
 `view`
 - [purchaseIndex.jsp](https://github.com/withColinSong/FineApple/blob/main/Fineapple-final/WebContent/purchase/index.jsp)
@@ -258,6 +256,8 @@ IDE | Eclipse, Sql Developer, VSC|
 - `아임포트`를 이용하여 toss 신용카드 결제/무통장 입금 API를 구현했다.
 - 토스 신용카드 결제/무통장 입금 API를 사용했다.
 
+> 다음 우편 API처럼 간단하게 생각하다가 처음에 엄청 해맸다. 5시간 정도 구글링을 하고 테스트 작업을 해보다가 마지막 10분만 더 해보고 안되면 내일하자. 라는 생각으로 마지막 시도를 하던 중 구현이 됐다! 정말 그 뿌듯함은 아직도 잊을 수가 없다. 하면 된다!
+
 ![](assets/PayCard.gif)
 
 ![](assets/PayBank.gif)
@@ -272,8 +272,18 @@ IDE | Eclipse, Sql Developer, VSC|
 
 [목차로 이동하기](#목차)
 
-## 🎉 후기
+## 3. 프로젝트 후기
+  처음에는 프로젝트라는 것이 너무 큰 부담감으로 다가왔고, 내가 잘 할 수 있을까 걱정이 많았다.
+서툴렀던 나 자신이 하나씩 기능을 구현하다 보니 어느새 세미 프로젝트도 잘 마무리로 할 수 있었다. <br> 
+깃 브랜치를 처음 사용해봤으며, merge, push, pull을 통해 에러들을 찾아가는 과정도 있었고 환경설정의 주요점도 알게 됐다. 팀원들과 일정을 조율하고 구글 meet를 이용하여 코드를 공유하고 각자의 정보를 교류하는 점들이 너무 즐거웠고 잘 마무리를 할 수 있었다.
+코딩만 잘해서는 문제가 아닌 것을 또 한 번 느꼈으며, 혼자 진행했을 때와 또 다른 경험을 하게 됐다. 또 한걸음 성장하는 계기가 되어 뿌듯했다.
 
+### 3.1. 앞으로의 방향성
+1. CSS를 적용할 때, 태그에 직접 지정하는 것이 아니라 `name`이나, `class`로 지정하여 적용하는 것이 팀원들과 코드를 합쳤을 때 충돌이 없다.
+2. js, css 파일을 완벽하게 분리하여 작성하기
+3. 변수명, 파일명을 조금 더 직관적으로 작성하기
+4. 커밋 메세지를 좀 더 분명하게 작성하기
+5. 불필요한 코드는 삭제하기
 
 - [📁 포트폴리오 메인으로 이동하기](https://github.com/withColinSong/Portfolio)
 - [목차로 이동하기](#목차)
