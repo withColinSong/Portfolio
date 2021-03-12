@@ -24,6 +24,11 @@
   - [2.5. 전달하기](#25-전달하기)
     - [2.5.1. 코드 링크](#251-코드-링크)
   - [2.6. 읽음 표시](#26-읽음-표시)
+    - [2.6.1. 코드 링크](#261-코드-링크)
+  - [2.7. 이동하기](#27-이동하기)
+    - [2.7.1. 코드 링크](#271-코드-링크)
+  - [2.8. 메일 쓰기](#28-메일-쓰기)
+    - [2.8.1. 코드 링크](#281-코드-링크)
   - [2.1. 로그인/로그아웃](#21-로그인로그아웃)
     - [2.1.1 코드 링크](#211-코드-링크-1)
 
@@ -195,6 +200,8 @@
 `business logic`
 - [EmailDao `Dao`](https://github.com/withColinSong/DoubleU/blob/main/doubleu/src/main/java/com/doubleu/email/mybatis/EmailDao.java)
   -  Ctrl+F -> `replyWriteMail`
+- [EmailFileUpload Service](https://github.com/withColinSong/DoubleU/blob/3690e8823b4bec1da302f558812bdfc57182ce21/doubleu/src/main/java/com/doubleu/email/service/EmailUploadService.java#L17)
+- [EmailReveiver Service](https://github.com/withColinSong/DoubleU/blob/3690e8823b/doubleu/src/main/java/com/doubleu/email/service/EmailReveiverService.java)
 - [EmailMapper `Mapper`](https://github.com/withColinSong/DoubleU/blob/3690e8823b4bec1da302f558812bdfc57182ce21/doubleu/src/main/java/com/doubleu/email/mybatis/EmailMapper.java)
   - Ctrl+F -> `replyWriteMail`
 - [MyBatis `쿼리문`](https://github.com/withColinSong/DoubleU/blob/main/doubleu/src/main/resources/static/mapper/email_mapper.xml)
@@ -228,6 +235,7 @@
   - Ctrl+F -> `updateSendTrash`
 - [MyBatis `쿼리문`](https://github.com/withColinSong/DoubleU/blob/main/doubleu/src/main/resources/static/mapper/email_mapper.xml)
 
+
 [목차로 이동하기](#목차)
 <hr>
 
@@ -255,6 +263,8 @@
 `business logic`
 - [EmailDao `Dao`](https://github.com/withColinSong/DoubleU/blob/main/doubleu/src/main/java/com/doubleu/email/mybatis/EmailDao.java)
   -  Ctrl+F -> `// 메일 보내기` | `// 받는 사람` | `// 참조`
+- [EmailFileUpload Service](https://github.com/withColinSong/DoubleU/blob/3690e8823b4bec1da302f558812bdfc57182ce21/doubleu/src/main/java/com/doubleu/email/service/EmailUploadService.java#L17)
+- [EmailReveiver Service](https://github.com/withColinSong/DoubleU/blob/3690e8823b/doubleu/src/main/java/com/doubleu/email/service/EmailReveiverService.java)
 - [EmailMapper `Mapper`](https://github.com/withColinSong/DoubleU/blob/3690e8823b4bec1da302f558812bdfc57182ce21/doubleu/src/main/java/com/doubleu/email/mybatis/EmailMapper.java)
   - Ctrl+F -> `selectFiles` | `selectSendPerson` | `selectSendPerson` |`insertSendWrite`
 - [MyBatis `쿼리문`](https://github.com/withColinSong/DoubleU/blob/main/doubleu/src/main/resources/static/mapper/email_mapper.xml)
@@ -265,7 +275,8 @@
 ![](assets/ToggleButton.gif)
 
 - 해당 체크박스를 클릭 후 읽음 버튼을 누르면 아이콘이 열려있는 아이콘을 변경된다. jQuery 토글 형식으로 구현했다.
-
+ 
+### 2.6.1. 코드 링크
 `view`
 - [email_index.jsp](https://github.com/withColinSong/DoubleU/blob/main/doubleu/src/main/webapp/WEB-INF/jsp/email/email_index.jsp)
 - [email_commons.js](https://github.com/withColinSong/DoubleU/blob/main/doubleu/src/main/resources/static/js/email/email_commons.js)
@@ -286,6 +297,74 @@
 - [MyBatis `쿼리문`](https://github.com/withColinSong/DoubleU/blob/main/doubleu/src/main/resources/static/mapper/email_mapper.xml)
 
 [목차로 이동하기](#목차)
+
+## 2.7. 이동하기
+
+![](assets/MoveMailBox.gif)
+- 해당 체크박스를 클릭 후 이동 버튼을 누르면 DropDowns 방식으로 해당 메일함으로 이동할 수 있다.
+
+### 2.7.1. 코드 링크
+
+`view`
+- [email_index.jsp](https://github.com/withColinSong/DoubleU/blob/main/doubleu/src/main/webapp/WEB-INF/jsp/email/email_index.jsp)
+- [email_commonsButton](https://github.com/withColinSong/DoubleU/blob/main/doubleu/src/main/webapp/WEB-INF/jsp/email/commonsCode/selectAllDropDowns.jsp)
+- [email_main.css](https://github.com/withColinSong/DoubleU/blob/main/doubleu/src/main/resources/static/css/email/email_main.css)
+
+
+`controller`
+- [EmailMainController](https://github.com/withColinSong/DoubleU/blob/3690e8823b/doubleu/src/main/java/com/doubleu/email/contorller/EmailSelectController.java)
+    - Ctrl+F -> `//email_index.jsp`
+
+`vo`
+- [EmailVo](https://github.com/withColinSong/DoubleU/blob/main/doubleu/src/main/java/com/doubleu/email/vo/EmailMainVo.java)
+
+`business logic`
+- [EmailDao `Dao`](https://github.com/withColinSong/DoubleU/blob/main/doubleu/src/main/java/com/doubleu/email/mybatis/EmailDao.java)
+- [SelectMoveFolderService](https://github.com/withColinSong/DoubleU/blob/3690e8823b/doubleu/src/main/java/com/doubleu/email/service/SelectMoveFolderService.java)
+- [EmailMapper `Mapper`](https://github.com/withColinSong/DoubleU/blob/3690e8823b4bec1da302f558812bdfc57182ce21/doubleu/src/main/java/com/doubleu/email/mybatis/EmailMapper.java)
+- [MyBatis `쿼리문`](https://github.com/withColinSong/DoubleU/blob/main/doubleu/src/main/resources/static/mapper/email_mapper.xml)
+
+[목차로 이동하기](#목차)
+
+> 중요 메일함을 제외한 나머지 메일함으로 제대로 이동하나 이동 후 받은 메일함 페이지로 이동 되는 것을 확인할 수 있다. 통일성이 필요하다!
+
+## 2.8. 메일 쓰기
+
+![](assets/WriteEmail.gif)
+
+- 왼쪽 사이드바에서 메일 쓰기 버튼을 눌렀을 때 메일을 작성할 수 있다.
+- `보내는 사람` : session의 저장된 멤버 정보를 기준으로 `이름`, `메일 주소`가 기본적으로 표시된다.
+- `받는 사람`, `참조` : `추가` 버튼을 이용하여 개별적으로 메일 주소가 추가 가능하며, 주소록을 통해 팀별로도 저장이 가능하다.
+- `중요!` : 체크박스를 클릭했을 시 중요 메일로 표시되어 메일함에 <code style="color:red">!</code>로 표현된다.
+- `임시 저장` : 메일을 작성하다 임시 저장할 수 있다. 
+- `내용` : Editor API를 사용했으며, 내용이 일정 height를 넘어가면 스크롤된다.
+- `첨부파일` : 첨부 파일을 선택하면 해당 파일의 갯수만큼 span 태그가 추가되어 표시된다. 
+
+### 2.8.1. 코드 링크
+`view`
+- [email_write.jsp](https://github.com/withColinSong/DoubleU/blob/main/doubleu/src/main/webapp/WEB-INF/jsp/email/email_write.jsp)
+- [email_text.js `Editor API`](https://github.com/withColinSong/DoubleU/blob/main/doubleu/src/main/resources/static/js/email/email_text.js)
+- [email_write.js](https://github.com/withColinSong/DoubleU/blob/main/doubleu/src/main/resources/static/js/email/email_write.js)
+  - Ctrl+F -> `function sendToEmail()`
+- [email_write.css](https://github.com/withColinSong/DoubleU/blob/main/doubleu/src/main/resources/static/css/email/email_write.css)
+- [email_result.jsp `메일 전송 후 결과창`](https://github.com/withColinSong/DoubleU/blob/main/doubleu/src/main/java/com/doubleu/email/contorller/EmailMainController.java)
+
+`controller`
+- [emailResult](https://github.com/withColinSong/DoubleU/blob/main/doubleu/src/main/java/com/doubleu/email/contorller/EmailMainController.java)
+  - Ctrl+F -> `// email_result.jsp`
+
+`vo`
+- [EmailVo](https://github.com/withColinSong/DoubleU/blob/main/doubleu/src/main/java/com/doubleu/email/vo/EmailMainVo.java)
+
+`business logic`
+- [EmailDao `Dao`](https://github.com/withColinSong/DoubleU/blob/main/doubleu/src/main/java/com/doubleu/email/mybatis/EmailDao.java)
+- [EmailFileUpload Service](https://github.com/withColinSong/DoubleU/blob/3690e8823b4bec1da302f558812bdfc57182ce21/doubleu/src/main/java/com/doubleu/email/service/EmailUploadService.java#L17)
+- [EmailReveiver Service](https://github.com/withColinSong/DoubleU/blob/3690e8823b/doubleu/src/main/java/com/doubleu/email/service/EmailReveiverService.java)
+- [EmailMapper `Mapper`](https://github.com/withColinSong/DoubleU/blob/3690e8823b4bec1da302f558812bdfc57182ce21/doubleu/src/main/java/com/doubleu/email/mybatis/EmailMapper.java)
+- [MyBatis `쿼리문`](https://github.com/withColinSong/DoubleU/blob/main/doubleu/src/main/resources/static/mapper/email_mapper.xml)
+
+[목차로 이동하기](#목차)
+
 
 
 ## 2.1. 로그인/로그아웃
