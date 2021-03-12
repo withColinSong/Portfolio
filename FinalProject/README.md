@@ -17,6 +17,9 @@
     - [2.1.1. 코드 링크](#211-코드-링크)
   - [2.2 스팸차단](#22-스팸차단)
     - [2.2.1 코드 링크](#221-코드-링크)
+  - [2.3. 답장하기](#23-답장하기)
+    - [2.3.1 코드 링크](#231-코드-링크)
+  - [2.4. 삭제하기](#24-삭제하기)
   - [2.1. 로그인/로그아웃](#21-로그인로그아웃)
     - [2.1.1 코드 링크](#211-코드-링크-1)
 
@@ -110,6 +113,12 @@
 - 검색창을 이용하여 검색할 수 있다.
 - 페이징 처리
 
+`공통 코드`
+- [sidebar.jsp `왼쪽 사이드바`](https://github.com/withColinSong/DoubleU/blob/main/doubleu/src/main/webapp/WEB-INF/jsp/email/commonsCode/emailSidebarLink.jsp)
+
+
+[목차로 이동하기](#목차)
+
 ## 2.1. 전체 선택
 
 ![](assets/SelectChkBox.gif)
@@ -121,16 +130,20 @@
 - [email_index.jsp](https://github.com/withColinSong/DoubleU/blob/main/doubleu/src/main/webapp/WEB-INF/jsp/email/email_index.jsp)
 - [email_commons.js](https://github.com/withColinSong/DoubleU/blob/main/doubleu/src/main/resources/static/js/email/email_commons.js)
 
+
+[목차로 이동하기](#목차)
+
 ## 2.2 스팸차단
 
 ![](assets/SendEmailBoxSpam.gif)
 
-- 해당 체크박스를 클릭 후 스팸차단 버튼을 누르면 모달창이 뜨고, 차단하기 버튼을 누르면 해당 메일이 스팸 메일함으로 이동된다.
+- 해당 체크박스를 클릭 후 스팸 차단 버튼을 누르면 모달창이 뜨고, 차단하기 버튼을 누르면 해당 메일이 스팸 메일함으로 이동된다.
 
 ### 2.2.1 코드 링크
 `view`
 - [email_index.jsp](https://github.com/withColinSong/DoubleU/blob/main/doubleu/src/main/webapp/WEB-INF/jsp/email/email_index.jsp)
 - [email_spam.jsp](https://github.com/withColinSong/DoubleU/blob/main/doubleu/src/main/webapp/WEB-INF/jsp/email/email_spam.jsp)
+- [email_spam_modal.jsp](https://github.com/withColinSong/DoubleU/blob/main/doubleu/src/main/webapp/WEB-INF/jsp/email/modal/spamModal.jsp)
 - [email_commons.js](https://github.com/withColinSong/DoubleU/blob/main/doubleu/src/main/resources/static/js/email/email_commons.js) 
 - [email_main.css](https://github.com/withColinSong/DoubleU/blob/main/doubleu/src/main/resources/static/css/email/email_main.css)
 
@@ -149,6 +162,66 @@
   - Ctrl+F -> `// 삭제하기 , 이동하기`
 - [MyBatis `쿼리문`](https://github.com/withColinSong/DoubleU/blob/main/doubleu/src/main/resources/static/mapper/email_mapper.xml)
 
+
+[목차로 이동하기](#목차)
+
+
+## 2.3. 답장하기
+
+![](assets/SelectReply.gif)
+
+- 해당 체크박스를 클릭 후 답장하기 버튼을 누르면 메일 쓰기로 이동하며 해당 메일 주소가 받는 사람 목록에 추가된다.
+
+### 2.3.1 코드 링크
+`view`
+- [email_index.jsp](https://github.com/withColinSong/DoubleU/blob/main/doubleu/src/main/webapp/WEB-INF/jsp/email/email_index.jsp)
+- [email_commons.js](https://github.com/withColinSong/DoubleU/blob/main/doubleu/src/main/resources/static/js/email/email_commons.js) 
+- [email_main.css](https://github.com/withColinSong/DoubleU/blob/main/doubleu/src/main/resources/static/css/email/email_main.css)
+
+
+`controller`
+- [EmailSelectController](https://github.com/withColinSong/DoubleU/blob/3690e8823b/doubleu/src/main/java/com/doubleu/email/contorller/EmailSelectController.java)
+    - Ctrl+F -> `// 답장하기`
+
+`vo`
+- [EmailVo](https://github.com/withColinSong/DoubleU/blob/main/doubleu/src/main/java/com/doubleu/email/vo/EmailMainVo.java)
+
+`business logic`
+- [EmailDao `Dao`](https://github.com/withColinSong/DoubleU/blob/main/doubleu/src/main/java/com/doubleu/email/mybatis/EmailDao.java)
+  -  Ctrl+F -> `replyWriteMail`
+- [EmailMapper `Mapper`](https://github.com/withColinSong/DoubleU/blob/3690e8823b4bec1da302f558812bdfc57182ce21/doubleu/src/main/java/com/doubleu/email/mybatis/EmailMapper.java)
+  - Ctrl+F -> `replyWriteMail`
+- [MyBatis `쿼리문`](https://github.com/withColinSong/DoubleU/blob/main/doubleu/src/main/resources/static/mapper/email_mapper.xml)
+
+[목차로 이동하기](#목차)
+
+## 2.4. 삭제하기
+![](assets/SendEmailBoxDelete.gif)
+- 해당 체크박스를 클릭 후 삭제하기를 누르면 해당 메일은 영구적으로 삭제된다.
+
+`view`
+- [email_index.jsp](https://github.com/withColinSong/DoubleU/blob/main/doubleu/src/main/webapp/WEB-INF/jsp/email/email_index.jsp)
+- [email_delete_modal.jsp](https://github.com/withColinSong/DoubleU/blob/main/doubleu/src/main/webapp/WEB-INF/jsp/email/modal/deleteModal.jsp)
+- [email_commons.js](https://github.com/withColinSong/DoubleU/blob/main/doubleu/src/main/resources/static/js/email/email_commons.js)
+  - Ctrl+F -> `var DeleteBtn` 
+- [email_main.css](https://github.com/withColinSong/DoubleU/blob/main/doubleu/src/main/resources/static/css/email/email_main.css)
+
+
+`controller`
+- [EmailMainController](https://github.com/withColinSong/DoubleU/blob/3690e8823b/doubleu/src/main/java/com/doubleu/email/contorller/EmailSelectController.java)
+    - Ctrl+F -> `DeleteSendTrash`
+
+`vo`
+- [EmailVo](https://github.com/withColinSong/DoubleU/blob/main/doubleu/src/main/java/com/doubleu/email/vo/EmailMainVo.java)
+
+`business logic`
+- [EmailDao `Dao`](https://github.com/withColinSong/DoubleU/blob/main/doubleu/src/main/java/com/doubleu/email/mybatis/EmailDao.java)
+  -  Ctrl+F -> `// 삭제하기`
+- [EmailMapper `Mapper`](https://github.com/withColinSong/DoubleU/blob/3690e8823b4bec1da302f558812bdfc57182ce21/doubleu/src/main/java/com/doubleu/email/mybatis/EmailMapper.java)
+  - Ctrl+F -> `updateSendTrash`
+- [MyBatis `쿼리문`](https://github.com/withColinSong/DoubleU/blob/main/doubleu/src/main/resources/static/mapper/email_mapper.xml)
+
+[목차로 이동하기](#목차)
 <hr>
 
 ## 2.1. 로그인/로그아웃
