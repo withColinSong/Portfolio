@@ -15,11 +15,15 @@
 - [2. 기능 구현 상세 설명](#2-기능-구현-상세-설명)
   - [2.1. 전체 선택](#21-전체-선택)
     - [2.1.1. 코드 링크](#211-코드-링크)
-  - [2.2 스팸차단](#22-스팸차단)
+  - [2.2 스팸 차단](#22-스팸-차단)
     - [2.2.1 코드 링크](#221-코드-링크)
   - [2.3. 답장하기](#23-답장하기)
     - [2.3.1 코드 링크](#231-코드-링크)
   - [2.4. 삭제하기](#24-삭제하기)
+    - [2.4.1. 코드 링크](#241-코드-링크)
+  - [2.5. 전달하기](#25-전달하기)
+    - [2.5.1. 코드 링크](#251-코드-링크)
+  - [2.6. 읽음 표시](#26-읽음-표시)
   - [2.1. 로그인/로그아웃](#21-로그인로그아웃)
     - [2.1.1 코드 링크](#211-코드-링크-1)
 
@@ -133,7 +137,7 @@
 
 [목차로 이동하기](#목차)
 
-## 2.2 스팸차단
+## 2.2 스팸 차단
 
 ![](assets/SendEmailBoxSpam.gif)
 
@@ -174,9 +178,11 @@
 
 ### 2.3.1 코드 링크
 `view`
-- [email_index.jsp](https://github.com/withColinSong/DoubleU/blob/main/doubleu/src/main/webapp/WEB-INF/jsp/email/email_index.jsp)
-- [email_commons.js](https://github.com/withColinSong/DoubleU/blob/main/doubleu/src/main/resources/static/js/email/email_commons.js) 
-- [email_main.css](https://github.com/withColinSong/DoubleU/blob/main/doubleu/src/main/resources/static/css/email/email_main.css)
+- [email_writeReply.jsp](https://github.com/withColinSong/DoubleU/blob/main/doubleu/src/main/webapp/WEB-INF/jsp/email/email_writeReply.jsp)
+- [email_commonsButton `답장하기 버튼, 스크립트`](https://github.com/withColinSong/DoubleU/blob/main/doubleu/src/main/webapp/WEB-INF/jsp/email/commonsCode/selectAllDropDowns.jsp) 
+- [email_text.js `Editor API`](https://github.com/withColinSong/DoubleU/blob/main/doubleu/src/main/resources/static/js/email/email_text.js)
+- [email_write.js](https://github.com/withColinSong/DoubleU/blob/main/doubleu/src/main/resources/static/js/email/email_write.js)
+- [email_write.css](https://github.com/withColinSong/DoubleU/blob/main/doubleu/src/main/resources/static/css/email/email_write.css)
 
 
 `controller`
@@ -199,6 +205,7 @@
 ![](assets/SendEmailBoxDelete.gif)
 - 해당 체크박스를 클릭 후 삭제하기를 누르면 해당 메일은 영구적으로 삭제된다.
 
+### 2.4.1. 코드 링크
 `view`
 - [email_index.jsp](https://github.com/withColinSong/DoubleU/blob/main/doubleu/src/main/webapp/WEB-INF/jsp/email/email_index.jsp)
 - [email_delete_modal.jsp](https://github.com/withColinSong/DoubleU/blob/main/doubleu/src/main/webapp/WEB-INF/jsp/email/modal/deleteModal.jsp)
@@ -223,6 +230,63 @@
 
 [목차로 이동하기](#목차)
 <hr>
+
+## 2.5. 전달하기
+
+![](assets/SendEmailBoxTrans.gif)
+- 해당 체크박스를 클릭 후 전달하기 버튼을 누르면 메일 쓰기로 이동하며 해당 메일 주소가 받는 사람 목록에 추가되며 해당 메일에 `제목, 내용, 첨부파일`의 데이터를 가져와 덧붙여 작성할 수 있다.
+
+### 2.5.1. 코드 링크
+`view`
+- [email_trans.jsp](https://github.com/withColinSong/DoubleU/blob/main/doubleu/src/main/webapp/WEB-INF/jsp/email/email_writeTrans.jsp)
+- [email_commonsButton `전달하기 버튼, 스크립트`](https://github.com/withColinSong/DoubleU/blob/main/doubleu/src/main/webapp/WEB-INF/jsp/email/commonsCode/selectAllDropDowns.jsp)
+- [email_text.js `Editor API`](https://github.com/withColinSong/DoubleU/blob/main/doubleu/src/main/resources/static/js/email/email_text.js)
+- [email_write.js](https://github.com/withColinSong/DoubleU/blob/main/doubleu/src/main/resources/static/js/email/email_write.js)
+- [email_write.css](https://github.com/withColinSong/DoubleU/blob/main/doubleu/src/main/resources/static/css/email/email_write.css)
+
+
+`controller`
+- [EmailSelectController](https://github.com/withColinSong/DoubleU/blob/3690e8823b/doubleu/src/main/java/com/doubleu/email/contorller/EmailSelectController.java)
+    - Ctrl+F -> `// 전달하기`
+
+`vo`
+- [EmailVo](https://github.com/withColinSong/DoubleU/blob/main/doubleu/src/main/java/com/doubleu/email/vo/EmailMainVo.java)
+
+`business logic`
+- [EmailDao `Dao`](https://github.com/withColinSong/DoubleU/blob/main/doubleu/src/main/java/com/doubleu/email/mybatis/EmailDao.java)
+  -  Ctrl+F -> `// 메일 보내기` | `// 받는 사람` | `// 참조`
+- [EmailMapper `Mapper`](https://github.com/withColinSong/DoubleU/blob/3690e8823b4bec1da302f558812bdfc57182ce21/doubleu/src/main/java/com/doubleu/email/mybatis/EmailMapper.java)
+  - Ctrl+F -> `selectFiles` | `selectSendPerson` | `selectSendPerson` |`insertSendWrite`
+- [MyBatis `쿼리문`](https://github.com/withColinSong/DoubleU/blob/main/doubleu/src/main/resources/static/mapper/email_mapper.xml)
+
+[목차로 이동하기](#목차)
+
+## 2.6. 읽음 표시
+![](assets/ToggleButton.gif)
+
+- 해당 체크박스를 클릭 후 읽음 버튼을 누르면 아이콘이 열려있는 아이콘을 변경된다. jQuery 토글 형식으로 구현했다.
+
+`view`
+- [email_index.jsp](https://github.com/withColinSong/DoubleU/blob/main/doubleu/src/main/webapp/WEB-INF/jsp/email/email_index.jsp)
+- [email_commons.js](https://github.com/withColinSong/DoubleU/blob/main/doubleu/src/main/resources/static/js/email/email_commons.js)
+  - Ctrl+F -> `var favoritesBtn ` | `var changeChkReadBtn` | `var readBtn` 
+- [email_main.css](https://github.com/withColinSong/DoubleU/blob/main/doubleu/src/main/resources/static/css/email/email_main.css)
+
+
+`controller`
+- [EmailMainController](https://github.com/withColinSong/DoubleU/blob/3690e8823b/doubleu/src/main/java/com/doubleu/email/contorller/EmailSelectController.java)
+    - Ctrl+F -> `//email_index.jsp`
+
+`vo`
+- [EmailVo](https://github.com/withColinSong/DoubleU/blob/main/doubleu/src/main/java/com/doubleu/email/vo/EmailMainVo.java)
+
+`business logic`
+- [EmailDao `Dao`](https://github.com/withColinSong/DoubleU/blob/main/doubleu/src/main/java/com/doubleu/email/mybatis/EmailDao.java)
+- [EmailMapper `Mapper`](https://github.com/withColinSong/DoubleU/blob/3690e8823b4bec1da302f558812bdfc57182ce21/doubleu/src/main/java/com/doubleu/email/mybatis/EmailMapper.java)
+- [MyBatis `쿼리문`](https://github.com/withColinSong/DoubleU/blob/main/doubleu/src/main/resources/static/mapper/email_mapper.xml)
+
+[목차로 이동하기](#목차)
+
 
 ## 2.1. 로그인/로그아웃
 
