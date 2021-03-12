@@ -106,7 +106,7 @@
   - `alert`창은 SweetAlert을 기본으로 사용하였으나 해당 프로젝트의 색감과 일치하도록 css를 수정하여 적용하였다.
   - [SweetAlert 사이트](https://sweetalert.js.org/guides/)
 - 로그인 성공 시 `HttpSession`에 해당 멤버의 데이터를 저장한다.
-- 로그아웃 시 해당 세션을 `session.invalidate()` 초기화한다.
+- 로그아웃 시 해당 세션을 `invalidate()` 초기화한다.
 
 ### 2.1.1 코드 링크
 
@@ -124,7 +124,7 @@
 `vo`
 - [LoginVo](https://github.com/withColinSong/DoubleU/blob/main/doubleu/src/main/java/com/doubleu/login/vo/LoginVo.java)
 
-`Spring boot`
+`dao`
 - [LoginDao `Dao`](https://github.com/withColinSong/DoubleU/blob/main/doubleu/src/main/java/com/doubleu/login/mybatis/LoginDao.java)
 - [LoginService `Service`](https://github.com/withColinSong/DoubleU/blob/main/doubleu/src/main/java/com/doubleu/login/service/LoginService.java)
 - [LoginMapper `Mapper`](https://github.com/withColinSong/DoubleU/blob/main/doubleu/src/main/java/com/doubleu/login/mybatis/LoginMapper.java)
