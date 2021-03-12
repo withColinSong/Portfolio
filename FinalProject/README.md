@@ -13,8 +13,12 @@
   - [1.5. 멤버별 기능 구현](#15-멤버별-기능-구현)
   - [1.6. 담당 역할](#16-담당-역할)
 - [2. 기능 구현 상세 설명](#2-기능-구현-상세-설명)
+  - [2.1. 전체 선택](#21-전체-선택)
+    - [2.1.1. 코드 링크](#211-코드-링크)
+  - [2.2 스팸차단](#22-스팸차단)
+    - [2.2.1 코드 링크](#221-코드-링크)
   - [2.1. 로그인/로그아웃](#21-로그인로그아웃)
-    - [2.1.1 코드 링크](#211-코드-링크)
+    - [2.1.1 코드 링크](#211-코드-링크-1)
 
 
 # 1. 프로젝트 소개
@@ -91,12 +95,61 @@
 [목차로 이동하기](#목차)
 
 # 2. 기능 구현 상세 설명
+> 메일함 구성
+- 받은 메일함
+- 중요 메일함
+- 임시 보관함
+- 보낸 메일함
+- 스팸 메일함
+- 휴지통
+- 내 메일함
 
 > 메일함 공통적 요소
 - 왼쪽 사이드바 count 이용하여 받은 메일함의 갯수를 표시하였다.
 - 메일함을 클릭하면 전체선택, 스팸차단, 답장하기, 삭제하기, 전달하기, 읽음표시, 이동하기 버튼이 있다.
 - 검색창을 이용하여 검색할 수 있다.
 - 페이징 처리
+
+## 2.1. 전체 선택
+
+![](assets/SelectChkBox.gif)
+
+- 스크립트를 이용하여 `onclick` 이벤트시 `selectChkBox(this)` function을 주어, 체크박스의 `name`을 가지고 있는 체크박스를 체크하게 된다.
+
+### 2.1.1. 코드 링크
+`view`
+- [email_index.jsp](https://github.com/withColinSong/DoubleU/blob/main/doubleu/src/main/webapp/WEB-INF/jsp/email/email_index.jsp)
+- [email_commons.js](https://github.com/withColinSong/DoubleU/blob/main/doubleu/src/main/resources/static/js/email/email_commons.js)
+
+## 2.2 스팸차단
+
+![](assets/SendEmailBoxSpam.gif)
+
+- 해당 체크박스를 클릭 후 스팸차단 버튼을 누르면 모달창이 뜨고, 차단하기 버튼을 누르면 해당 메일이 스팸 메일함으로 이동된다.
+
+### 2.2.1 코드 링크
+`view`
+- [email_index.jsp](https://github.com/withColinSong/DoubleU/blob/main/doubleu/src/main/webapp/WEB-INF/jsp/email/email_index.jsp)
+- [email_spam.jsp](https://github.com/withColinSong/DoubleU/blob/main/doubleu/src/main/webapp/WEB-INF/jsp/email/email_spam.jsp)
+- [email_commons.js](https://github.com/withColinSong/DoubleU/blob/main/doubleu/src/main/resources/static/js/email/email_commons.js) 
+- [email_main.css](https://github.com/withColinSong/DoubleU/blob/main/doubleu/src/main/resources/static/css/email/email_main.css)
+
+
+`controller`
+- [EmailMainController](https://github.com/withColinSong/DoubleU/blob/main/doubleu/src/main/java/com/doubleu/email/contorller/EmailMainController.java)
+    - Ctrl+F -> `// 스팸 차단 모달`
+
+`vo`
+- [EmailVo](https://github.com/withColinSong/DoubleU/blob/main/doubleu/src/main/java/com/doubleu/email/vo/EmailMainVo.java)
+
+`business logic`
+- [EmailDao `Dao`](https://github.com/withColinSong/DoubleU/blob/main/doubleu/src/main/java/com/doubleu/email/mybatis/EmailDao.java)
+  -  Ctrl+F -> `// 삭제하기`
+- [EmailMapper `Mapper`](https://github.com/withColinSong/DoubleU/blob/3690e8823b4bec1da302f558812bdfc57182ce21/doubleu/src/main/java/com/doubleu/email/mybatis/EmailMapper.java)
+  - Ctrl+F -> `// 삭제하기 , 이동하기`
+- [MyBatis `쿼리문`](https://github.com/withColinSong/DoubleU/blob/main/doubleu/src/main/resources/static/mapper/email_mapper.xml)
+
+<hr>
 
 ## 2.1. 로그인/로그아웃
 
@@ -112,7 +165,7 @@
 
 `view`
 - [login.jsp](https://github.com/withColinSong/DoubleU/blob/main/doubleu/src/main/webapp/WEB-INF/jsp/MainPage/login.jsp)
-- [loginPost.jsp `로그인 실패 스크립트와 view`](https://github.com/withColinSong/DoubleU/blob/main/doubleu/src/main/webapp/WEB-INF/jsp/MainPage/loginPost.jsp)
+- [loginPost.jsp `로그인 실패 view 와 스크립트`](https://github.com/withColinSong/DoubleU/blob/main/doubleu/src/main/webapp/WEB-INF/jsp/MainPage/loginPost.jsp)
 - [login.js `아이디/비밀번호을 입력하지 않았을 때 스크립트`](https://github.com/withColinSong/DoubleU/blob/main/doubleu/src/main/resources/static/js/login/login.js) 
 - [login.css](https://github.com/withColinSong/DoubleU/blob/main/doubleu/src/main/resources/static/css/email/login.css)
 
@@ -124,11 +177,13 @@
 `vo`
 - [LoginVo](https://github.com/withColinSong/DoubleU/blob/main/doubleu/src/main/java/com/doubleu/login/vo/LoginVo.java)
 
-`dao`
+`business logic`
 - [LoginDao `Dao`](https://github.com/withColinSong/DoubleU/blob/main/doubleu/src/main/java/com/doubleu/login/mybatis/LoginDao.java)
 - [LoginService `Service`](https://github.com/withColinSong/DoubleU/blob/main/doubleu/src/main/java/com/doubleu/login/service/LoginService.java)
 - [LoginMapper `Mapper`](https://github.com/withColinSong/DoubleU/blob/main/doubleu/src/main/java/com/doubleu/login/mybatis/LoginMapper.java)
-- [myBatis `쿼리문`](https://github.com/withColinSong/DoubleU/blob/main/doubleu/src/main/resources/static/mapper/email_mapper.xml)
+- [MyBatis `쿼리문`](https://github.com/withColinSong/DoubleU/blob/main/doubleu/src/main/resources/static/mapper/login_mapper.xml)
+
+[목차로 이동하기](#목차)
 
 
 
