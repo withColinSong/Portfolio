@@ -387,8 +387,11 @@
 `controller`
 - [emailTemp](https://github.com/withColinSong/DoubleU/blob/main/doubleu/src/main/java/com/doubleu/email/contorller/EmailMainController.java)
   - Ctrl+F -> `// 임시저장`
+- [emailTempRead](https://github.com/withColinSong/DoubleU/blob/main/doubleu/src/main/java/com/doubleu/email/contorller/EmailMainController.java)
+  - Ctrl+F -> `// 임시 저장 읽기`
 - [emailTempList](https://github.com/withColinSong/DoubleU/blob/main/doubleu/src/main/java/com/doubleu/email/contorller/EmailMainController.java)
   - Ctrl+F -> `// email_temporary.jsp`
+
 
 `vo`
 - [EmailVo](https://github.com/withColinSong/DoubleU/blob/main/doubleu/src/main/java/com/doubleu/email/vo/EmailMainVo.java)
@@ -403,6 +406,32 @@
 [목차로 이동하기](#목차)
 
 ## 2.10. 메일 읽기
+![](assets/EmailRead.gif)
+
+- 메일을 클릭하면 해당 메일에 대한 내용을 확인할 수 있다.
+- 해당 메일을 클릭하면 스크립트 `goView(emailNo)` function을 통해 해당 하는 데이터를 조회한다.
+
+`view`
+- [email_read.jsp](https://github.com/withColinSong/DoubleU/blob/main/doubleu/src/main/webapp/WEB-INF/jsp/email/email_read.jsp)
+- [email_commons.js](https://github.com/withColinSong/DoubleU/blob/main/doubleu/src/main/resources/static/js/email/email_commons.js)
+- [email_read.css](https://github.com/withColinSong/DoubleU/blob/main/doubleu/src/main/resources/static/css/email/email_read.css)
+
+`controller`
+- [emailRead](https://github.com/withColinSong/DoubleU/blob/main/doubleu/src/main/java/com/doubleu/email/contorller/EmailMainController.java)
+  - Ctrl+F -> `// email_read.jsp`
+
+`vo`
+- [EmailVo](https://github.com/withColinSong/DoubleU/blob/main/doubleu/src/main/java/com/doubleu/email/vo/EmailMainVo.java)
+
+`business logic`
+- [EmailDao `Dao`](https://github.com/withColinSong/DoubleU/blob/main/doubleu/src/main/java/com/doubleu/email/mybatis/EmailDao.java)
+- [EmailFileUpload Service](https://github.com/withColinSong/DoubleU/blob/3690e8823b4bec1da302f558812bdfc57182ce21/doubleu/src/main/java/com/doubleu/email/service/EmailUploadService.java#L17)
+- [EmailReveiver Service](https://github.com/withColinSong/DoubleU/blob/3690e8823b/doubleu/src/main/java/com/doubleu/email/service/EmailReveiverService.java)
+- [EmailMapper `Mapper`](https://github.com/withColinSong/DoubleU/blob/3690e8823b4bec1da302f558812bdfc57182ce21/doubleu/src/main/java/com/doubleu/email/mybatis/EmailMapper.java)
+- [MyBatis `쿼리문`](https://github.com/withColinSong/DoubleU/blob/main/doubleu/src/main/resources/static/mapper/email_mapper.xml)
+
+[목차로 이동하기](#목차)
+
 
 ## 2.11. 주소록
 
