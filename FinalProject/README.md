@@ -376,6 +376,31 @@
 - 제목이 없을 시 `제목없음`으로 저장된다.
 
 ### 2.9.1. 코드 링크 
+`view`
+- [email_temporaryModal.jsp](https://github.com/withColinSong/DoubleU/blob/main/doubleu/src/main/webapp/WEB-INF/jsp/email/modal/temporaryModal.jsp)
+  - `임시 저장 버튼을 눌렀을 시 모달창`
+- [email_temporary.jsp](https://github.com/withColinSong/DoubleU/blob/main/doubleu/src/main/webapp/WEB-INF/jsp/email/email_temporary.jsp)
+  -  `임시 보관함`
+- [email_temp.js](https://github.com/withColinSong/DoubleU/blob/main/doubleu/src/main/resources/static/js/email/email_temp.js)
+- [email_main.css](https://github.com/withColinSong/DoubleU/blob/main/doubleu/src/main/resources/static/css/email/email_main.css)
+
+`controller`
+- [emailTemp](https://github.com/withColinSong/DoubleU/blob/main/doubleu/src/main/java/com/doubleu/email/contorller/EmailMainController.java)
+  - Ctrl+F -> `// 임시저장`
+- [emailTempList](https://github.com/withColinSong/DoubleU/blob/main/doubleu/src/main/java/com/doubleu/email/contorller/EmailMainController.java)
+  - Ctrl+F -> `// email_temporary.jsp`
+
+`vo`
+- [EmailVo](https://github.com/withColinSong/DoubleU/blob/main/doubleu/src/main/java/com/doubleu/email/vo/EmailMainVo.java)
+
+`business logic`
+- [EmailDao `Dao`](https://github.com/withColinSong/DoubleU/blob/main/doubleu/src/main/java/com/doubleu/email/mybatis/EmailDao.java)
+- [EmailFileUpload Service](https://github.com/withColinSong/DoubleU/blob/3690e8823b4bec1da302f558812bdfc57182ce21/doubleu/src/main/java/com/doubleu/email/service/EmailUploadService.java#L17)
+- [EmailReveiver Service](https://github.com/withColinSong/DoubleU/blob/3690e8823b/doubleu/src/main/java/com/doubleu/email/service/EmailReveiverService.java)
+- [EmailMapper `Mapper`](https://github.com/withColinSong/DoubleU/blob/3690e8823b4bec1da302f558812bdfc57182ce21/doubleu/src/main/java/com/doubleu/email/mybatis/EmailMapper.java)
+- [MyBatis `쿼리문`](https://github.com/withColinSong/DoubleU/blob/main/doubleu/src/main/resources/static/mapper/email_mapper.xml)
+
+[목차로 이동하기](#목차)
 
 ## 2.10. 메일 읽기
 
@@ -414,8 +439,4 @@
 - [MyBatis `쿼리문`](https://github.com/withColinSong/DoubleU/blob/main/doubleu/src/main/resources/static/mapper/login_mapper.xml)
 
 [목차로 이동하기](#목차)
-
-
-
-
 
