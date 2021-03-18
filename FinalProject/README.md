@@ -32,7 +32,9 @@
   - [2.9 임시 저장하기](#29-임시-저장하기)
     - [2.9.1. 코드 링크](#291-코드-링크)
   - [2.10. 메일 읽기](#210-메일-읽기)
+    - [2.10.1 코드 링크](#2101-코드-링크)
   - [2.11. 주소록](#211-주소록)
+    - [2.11.1 코드 링크](#2111-코드-링크)
   - [2.12. 로그인/로그아웃](#212-로그인로그아웃)
     - [2.12.1 코드 링크](#2121-코드-링크)
 
@@ -411,6 +413,7 @@
 - 메일을 클릭하면 해당 메일에 대한 내용을 확인할 수 있다.
 - 해당 메일을 클릭하면 스크립트 `goView(emailNo)` function을 통해 해당 하는 데이터를 조회한다.
 
+### 2.10.1 코드 링크
 `view`
 - [email_read.jsp](https://github.com/withColinSong/DoubleU/blob/main/doubleu/src/main/webapp/WEB-INF/jsp/email/email_read.jsp)
 - [email_commons.js](https://github.com/withColinSong/DoubleU/blob/main/doubleu/src/main/resources/static/js/email/email_commons.js)
@@ -434,6 +437,34 @@
 
 
 ## 2.11. 주소록
+![](assets/EmailAddress.gif)
+- 주소록 버튼을 눌렀을 때 해당 모달창에 직원의 이름, 메일주소, 부서를 불러온다.
+- 체크 박스를 클릭 후 받은 사람의 가까운 `+`버튼을 눌렀을 시 해당 메일 주소가 append하여 `<span>` 태그가 생성된다.
+- 체크 박스를 클릭 후 참조에 가까운 `+`버튼을 눌렀을 시 해당 메일 주소가 append하여 `forEach`문을 통해 해당 memberNo만큼 `<span>`태그가 생성된다.
+- 검색바는 jQuery ajax를 이용하여 부서별로 조회가 가능하다.
+- 주소록에서 추가하기 버튼을 눌렀을 시, 해당 메일 주소를 `input`태그에 append하였고, setAttribute를 통해 css와 태그 name을 추가해주었다. 해당 네임으로 INSERT가 가능하도록 만들었다.
+
+
+### 2.11.1 코드 링크
+`view`
+- [email_addressModal.jsp](https://github.com/withColinSong/DoubleU/blob/main/doubleu/src/main/webapp/WEB-INF/jsp/email/modal/addressBookModal.jsp)
+- [email_address.js](https://github.com/withColinSong/DoubleU/blob/main/doubleu/src/main/resources/static/js/email/email_addressBook.js)
+ 
+`controller`
+- [selectAddress](https://github.com/withColinSong/DoubleU/blob/main/doubleu/src/main/java/com/doubleu/email/contorller/EmailSelectController.java)
+  - 주소록 클릭 시 직원의 데이터를 받아오는 컨트롤러
+  - Ctrl+F -> `//주소록 조회하기`
+
+`vo`
+- [EmailVo](https://github.com/withColinSong/DoubleU/blob/main/doubleu/src/main/java/com/doubleu/email/vo/EmailMainVo.java)
+
+`business logic`
+- [EmailMapper `Mapper`](https://github.com/withColinSong/DoubleU/blob/3690e8823b4bec1da302f558812bdfc57182ce21/doubleu/src/main/java/com/doubleu/email/mybatis/EmailMapper.java)
+- [MyBatis `쿼리문`](https://github.com/withColinSong/DoubleU/blob/main/doubleu/src/main/resources/static/mapper/email_mapper.xml)
+
+[목차로 이동하기](#목차)
+
+
 
 ## 2.12. 로그인/로그아웃
 
