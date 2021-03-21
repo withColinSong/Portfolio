@@ -12,6 +12,7 @@
 
 ## 🔍 `Final Project` Preview
 
+![](FinalProject/assets/Preview.gif)
 > `아래 링크에서 자세한 내용이 확인 가능합니다.` <br>
 - [📁 자세한 내용으로 이동하기](FinalProject/README.md)
 
